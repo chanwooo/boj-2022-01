@@ -20,12 +20,20 @@ class Solution1 {
     public int solution(String[][] clothes) {
         // type : [name1, name2, name3]
         var closet = new DefaultDict<String, List<String>>(ArrayList.class);
+        var itemCount = clothes.length;
+        var answer = 1;
 
         for (var item : clothes) {
             closet.get(item[1]).add(item[0]);
         }
         System.out.println(closet);
-        return 0;
+
+        for(var item : closet.entrySet()){
+            answer *= item.getValue().size()+1;
+            System.out.println(item.getValue());
+        }
+
+        return answer-1;
     }
 }
 

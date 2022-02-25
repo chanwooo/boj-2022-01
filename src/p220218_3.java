@@ -25,24 +25,27 @@ public class p220218_3 {
             for (var row = 0; row < board.length; row++) {
                 currentItem = board[row][col - 1];
 
-                if (currentItem != 0) {
-                    basket.add(currentItem);
-                    board[row][col - 1] = 0;
+                if (currentItem == 0)
+                    continue;
 
-//                    System.out.println(basket);
+                basket.add(currentItem);
+                board[row][col - 1] = 0;
 
-                    if (basket.size() > 1) {
-                        if (basket.get(basket.size() - 1).equals(basket.get(basket.size() - 2))) {
+                System.out.println(basket);
 
-//                            System.out.println("pang! : " + basket.get(basket.size() - 1));
-
-                            answer += 2;
-                            basket.remove(basket.size() - 1);
-                            basket.remove(basket.size() - 1);
-                        }
-                    }
+                if (basket.size() < 2)
                     break;
-                }
+
+                var isEqualsItem = basket.get(basket.size() - 1).equals(basket.get(basket.size() - 2));
+                if (!isEqualsItem)
+                    break;
+
+                System.out.println("pang! : " + basket.get(basket.size() - 1));
+
+                answer += 2;
+                basket.remove(basket.size() - 1);
+                basket.remove(basket.size() - 1);
+                break;
             }
         }
         return answer;

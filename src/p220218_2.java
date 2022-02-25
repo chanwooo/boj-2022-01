@@ -13,7 +13,7 @@ public class p220218_2 {
         }
 
         for (var i = 0; i < N; i++) {
-            System.out.print("Case #"+(i+1)+": ");
+            System.out.print("Case #" + (i + 1) + ": ");
             System.out.println(reverseText(inputData[i]));
         }
 
@@ -22,10 +22,10 @@ public class p220218_2 {
     static String reverseText(String inputText) {
         var splitText = inputText.split(" ");
         var reverseText = new StringBuilder();
-        for(var i=0;i< splitText.length;i++){
+        for (var i = 0; i < splitText.length; i++) {
             reverseText.append(splitText[splitText.length - i - 1]).append(" ");
         }
 
-        return reverseText.substring(0,reverseText.length()-1);
+        return reverseText.substring(0, reverseText.length() - 1);
     }
 }

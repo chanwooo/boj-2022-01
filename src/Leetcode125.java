@@ -21,8 +21,7 @@ public class Leetcode125 {
             var preProcessedString = s.toLowerCase()
                     .replaceAll("[^a-z0-9]", "");
             var preProcessedCharArray = preProcessedString.toCharArray();
-            var index = 0;
-            while (index < preProcessedCharArray.length / 2) {
+            for(var index=0; index<preProcessedCharArray.length/2; index++) {
                 if (preProcessedCharArray[index] != preProcessedCharArray[preProcessedCharArray.length - index - 1]) {
                     return false;
                 }
